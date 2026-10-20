@@ -43,6 +43,8 @@ insert into services(name,category,description) values
 ('Website Design & Development','Web','Business websites built to professional standards.'),
 ('Website Maintenance','Web','Updates, fixes and hosting support.'),
 ('Digital Business Solutions','Digital','Booking, ordering and management systems.');
-
+insert into profiles(id, full_name, role)
+select id, 'Prenon Mpanga', 'admin' from auth.users where email='prenonmpanga023@gmail.com'
+on conflict (id) do update set role='admin';
 -- FIRST ADMIN: sign up on the site, then run with your email:
 -- update profiles set role='admin' where id=(select id from auth.users where email='prenonmpanga023@gmail.com');
